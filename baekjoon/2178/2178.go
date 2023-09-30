@@ -7,19 +7,16 @@ import (
 	"strings"
 )
 
+// 전역 변수
 var (
-	graph   [][]string
-	count   [][]int
-	rowDiff = []int{0, 0, -1, 1}
-	colDiff = []int{-1, 1, 0, 0}
+	graph [][]string
+	count [][]int
+	dx    = []int{0, 0, -1, 1}
+	dy    = []int{-1, 1, 0, 0}
+	n, m  int
 )
 
-func bfs(x, y int) {
-	// while loop
-	for {
-		
-	}
-
+func bfs(x, y int) int {
 }
 
 func main() {
@@ -27,7 +24,6 @@ func main() {
 	writer := bufio.NewWriter(os.Stdout)
 	defer writer.Flush()
 
-	var n, m int
 	fmt.Fscanln(reader, &n, &m)
 
 	count = make([][]int, n)
@@ -41,6 +37,6 @@ func main() {
 		graph = append(graph, inputs)
 	}
 
-	bfs(0, 0)
+	fmt.Println(bfs(0, 0))
 
 }
