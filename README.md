@@ -1,2 +1,2 @@
 # go_algorithm
-Algorithm problem solved in Go
+Algorithic problem solved in either Go or C++ 
