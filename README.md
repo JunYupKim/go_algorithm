@@ -1,2 +1,2 @@
 # go_algorithm
-Algorithic problem solved in either Go or Python 
+Algorithmic problems solved in either Go or Python 
