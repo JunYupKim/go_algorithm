@@ -4,19 +4,22 @@ N,M = map(int,input().split())
 J = int(input())
 
 # 바구니가 이동해야 하는 거리의 최솟값 
-answer = 0
+answer = 0 
+# 1부터 시작 
+left = 0
+right = left+M-1
+
 for _ in range(J):
-    pos = int(input())
-    # if문 사용해서 바구니 안에 있으면 0 
-    if pos :
-        continue 
-    else:
-        # 없으면 move 
-        answer += abs(M-pos)
+    pos = int(input())-1
+    if right < pos:
+        answer += (pos-right)
+        left += (pos-right)
+        right += (pos-right) 
+    elif pos < left:  
+        answer += (left-pos)
+        right -= (left-pos)
+        left -= (left-pos)
 
-print("answer = ",answer)
+print(answer)
 
-# 1-1 = 0 
-# 5-1 = 4
-# 3- = 2 5 1
 
