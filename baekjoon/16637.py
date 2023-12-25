@@ -1,35 +1,39 @@
 N = int(input())
 S = input()
+num = list()
+op = list()
+answer = -999999999
 
-ret = -1e9
+def oper(number1, operation,number2):
+    if operation == '*':
+        return number1*number2
+    
+    if operation =='-':
+        return number1-number2
 
-def oper(num1, op,num2):
-    if op == '+':
-        return num1+num2
-    elif op == '-':
-        return num1-num2
-    elif op == '*':
-        return num1*num2
-    return 
+    if operation =='+':
+        return number1+number2
 
-number = list()
-operation = list()
-
+# 일단 나누고 
 for i in range(N):
     if S[i].isdigit():
-        number.append(int(S[i]) )
+        num.append(int(S[i])) 
     else:
-        operation.append(S[i])
+        op.append(S[i])
 
-def go(idx, num):
-    if idx == len(S)-1:
-        ret = max(num,ret)
+def go(idx,sum):
+    global answer
+    if idx == N-1: 
+        answer = max(answer,sum)
         return 
-    go(idx+1,oper(num,operation[idx], number[idx+1]))
-    if(idx+2 <= N-1):
-        temp = oper(number[idx+1],operation[idx+1],number[idx+2])
-        go(idx+2,oper(num,operation[idx], temp))
+    # left to right 
+    go(idx+1,oper(sum,op[idx],num[idx+1]))
+    # if left to right +2 
+    if idx+2 <= N-1: 
+        tmp = oper(num[idx+1],op[idx+1],num[idx+2])
+        go(idx+2,oper(sum,op[idx],tmp)) 
     return 
 
-go(0,number[0])
-print(ret)
+go(0,num[0])
+
+print(answer)
