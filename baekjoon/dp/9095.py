@@ -1,7 +1,9 @@
 n = int(input())
 method = []
+
 for _ in range(n):
     method.append(int(input()))
+
 cnt = 0 
 def dp(num):
     global cnt 
