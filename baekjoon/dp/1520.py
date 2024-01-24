@@ -1,5 +1,7 @@
 import sys 
 sys.setrecursionlimit(10**9)
+input = sys.stdin.readline
+
 M,N = map(int,input().split())
 graph = list()
 for _ in range(M):
@@ -12,7 +14,9 @@ DP = [[0]*N for _ in range(M)]
 def DFS(x,y):
     if x== M-1 and y==N-1:
         return 1
-    DP[x][y] = 0 
+    if(DP[x][y] != 0):
+         return DP[x][y]  
+
     for i in range(4):
         nx = x+dx[i]
         ny = y+dy[i]
