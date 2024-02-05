@@ -1,5 +1,12 @@
 n = int(input())
-list(map(int,input().split()))
+storage = list(map(int,input().split()))
+dp = [0]*(n)
+if len(storage) > 2: 
+    dp[0] = storage[0]
+    dp[1] = storage[1]
+    for i in range(3,n):
+        dp[i] = max(dp[i-1],dp[i-2]+storage[i])
 
-# 식량의 최대한 많은 식량을 얻기를 원한다. 
-# 최소한 한 칸 이상 떨어진 식량창고를 약탈해야 한다. 
+    print(dp[n-1])
+else:
+    print(max(storage))
