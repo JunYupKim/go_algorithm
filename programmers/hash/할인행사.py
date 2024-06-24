@@ -20,11 +20,4 @@ def solution(want, number, discount):
         else:
             answer += 1 
     
-        
-            
-    
-            
-            
-            
-    
     return answer
