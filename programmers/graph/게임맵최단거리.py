@@ -1,7 +1,6 @@
 from collections import deque 
 def solution(maps):
     
-    end = [len(maps)-1,len(maps)-1]
     n = len(maps)
     m = len(maps[0])
     
